@@ -46,7 +46,7 @@ public class ChatCommandExc extends ChatUtils implements CommandExecutor {
 
         Player p = (Player)sender;
 
-        if(cmd.getName().equalsIgnoreCase("chat"))
+        if(cmd.getName().equalsIgnoreCase("dev"))
         {
             logCommand(p, args);
             if(args.length < 1)
@@ -54,9 +54,10 @@ public class ChatCommandExc extends ChatUtils implements CommandExecutor {
                 p.sendMessage(color("%prefix% &cUse more arguments..."));
             }else if(args.length > 0)
             {
-                switch (args[0])
+                switch (args[0].toLowerCase())
                 {
                     case "set":
+                        p.sendMessage(color("%prefix% &7You need to add a message after set argument!"));
                         if(args.length > 1)
                         {
                             StringBuilder str = new StringBuilder();
@@ -72,8 +73,24 @@ public class ChatCommandExc extends ChatUtils implements CommandExecutor {
                         }
                         break;
 
+                    case "help":
+                    case "?":
+                        p.sendMessage(color("&7     ----- %prefix% &7-----"));
+                        p.sendMessage("");
+                        p.sendMessage(color("&a&l> /dev version"));
+                        p.sendMessage(color("&a&l> /dev about"));
+                        p.sendMessage(color("&a&l> /dev set <msg>"));
+                        p.sendMessage(color("&a&l> /dev test &7- Make sure to click on the message!"));
+                        break;
+
+                    case "version":
+                       p.sendMessage(ChatColor.RED + "Nothing here yet...");
+                        break;
+
+                    case "about":
+
                     case "test":
-                        TextComponent text = new TextComponent("Click me!");
+                        TextComponent text = new TextComponent("Click me, or mouse over me!");
 
                         text.setColor(ChatColor.AQUA);
 
@@ -87,6 +104,8 @@ public class ChatCommandExc extends ChatUtils implements CommandExecutor {
                     default:
                         p.sendMessage(color("&7     ----- %prefix% &7-----"));
                         p.sendMessage("");
+                        p.sendMessage(color("&a&l> /dev version"));
+                        p.sendMessage(color("&a&l> /dev about"));
                         p.sendMessage(color("&a&l> /chat set <msg>"));
                         p.sendMessage(color("&a&l> /chat test &7- Make sure to click on the message!"));
                 }

@@ -6,5 +6,5 @@ author: ES96
 website: https://github.com/ES359
 
 commands:
-  chat:
+  dev:
     description: Main command in plugin.

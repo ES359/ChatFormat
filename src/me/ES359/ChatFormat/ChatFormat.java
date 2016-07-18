@@ -18,7 +18,7 @@ public class ChatFormat extends JavaPlugin {
 
     public void onEnable()
     {
-        getCommand("chat").setExecutor(new ChatCommandExc());
+        getCommand("dev").setExecutor(new ChatCommandExc());
         loadEvents();
     }
 

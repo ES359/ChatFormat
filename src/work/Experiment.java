@@ -6,6 +6,7 @@ import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -22,13 +23,24 @@ public class Experiment extends ChatUtils implements Listener
         Debug.log(Debug.pluginLog() + "Logging if the chat is working ");
         Player p = event.getPlayer();
 
-        TextComponent text = new TextComponent(""+p.getName());
+        TextComponent text = new TextComponent(""+p.getName() + " " + event.getMessage());
 
-        text.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("UUID:").create()));
+        text.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(color("&7Display name: &a" +p.getName()+"\n" + "&7UUID: &a" + p.getUniqueId() + "\n" + "&7World name: &a" + p.getWorld().getName())).create()));
 
-       String s = TextComponent.toLegacyText(text);
+        event.setCancelled(true);
 
-        event.setFormat(s + " " +event.getMessage());
+//       String s = TextComponent.toLegacyText(text);
+
+        for(Player users : Bukkit.getServer().getOnlinePlayers())
+        {
+            if(users.hasPermission("dev.format"))
+            {
+                users.spigot().sendMessage(text);
+            }else
+            {
+                users.sendMessage(color("&7Chat> &f"+ p.getName() + " " + event.getMessage()));
+            }
+        }
 
 //        p.spigot().sendMessage(text);
 

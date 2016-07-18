@@ -15,7 +15,7 @@ public class ChatUtils
 {
     private static final String VERSION_ID = "/*ADD VERSION ID*/";
 
-    private String prefix = ChatColor.translateAlternateColorCodes('&',"&bChat&7> ");
+    private String prefix = ChatColor.translateAlternateColorCodes('&',"&bDev&7> ");
     /**
      * Stores Author UUID.
      */
