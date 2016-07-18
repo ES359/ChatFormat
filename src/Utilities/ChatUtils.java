@@ -122,6 +122,13 @@ public class ChatUtils
         }
     }
 
+    public void logCommand(Player sender,  String args[])
+    {
+        if(ChatFormat.DEBUG)
+        {
+            logToConsole("[Chat]: &7" + sender.getName() + " used the command, &9/vote " + args);
+        }
+    }
 
     public String msg (String msg)
     {

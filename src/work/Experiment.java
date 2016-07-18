@@ -22,17 +22,21 @@ public class Experiment extends ChatUtils implements Listener
         Debug.log(Debug.pluginLog() + "Logging if the chat is working ");
         Player p = event.getPlayer();
 
-        TextComponent text = new TextComponent(color(p.getName()));
+        TextComponent text = new TextComponent(""+p.getName());
 
-        text.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Testing this ").create()));
-        String s = TextComponent.toLegacyText(text);
+        text.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("UUID:").create()));
 
-        event.setFormat(s + "  " + event.getMessage());
+       String s = TextComponent.toLegacyText(text);
+
+        event.setFormat(s + " " +event.getMessage());
+
+//        p.spigot().sendMessage(text);
+
+//
+//  String s = TextComponent.toLegacyText(text);
+
+//        event.setFormat(s + "  " + event.getMessage());
 
     }
 
-    public void sendTextComponent(Player player, BaseComponent msg)
-    {
-        player.spigot().sendMessage(msg);
-    }
 }

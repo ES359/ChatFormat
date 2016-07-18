@@ -5,6 +5,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import work.ChatCommandExc;
 import work.Experiment;
 
 /**
@@ -15,7 +16,9 @@ public class ChatFormat extends JavaPlugin {
     public PluginDescriptionFile pdfFile = this.getDescription();
     static public boolean DEBUG = true;
 
-    public void onEnable() {
+    public void onEnable()
+    {
+        getCommand("chat").setExecutor(new ChatCommandExc());
         loadEvents();
     }
 

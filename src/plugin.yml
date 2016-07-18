@@ -4,3 +4,7 @@ version: 0.0.1
 description: Testing Json chat message configuration...
 author: ES96
 website: https://github.com/ES359
+
+commands:
+  chat:
+    description: Main command in plugin.
