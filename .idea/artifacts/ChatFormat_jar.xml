@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="ChatFormat:jar">
+    <output-path>$USER_HOME$/Desktop/Bukkit1/plugins</output-path>
+    <root id="archive" name="ChatFormat.jar">
+      <element id="module-output" name="ChatFormat" />
+    </root>
+  </artifact>
+</component>
